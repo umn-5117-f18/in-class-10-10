@@ -5,7 +5,9 @@ import psycopg2
 
 import db
 
+
 app = Flask(__name__)
+
 
 @app.before_first_request
 def initialize():
@@ -40,16 +42,15 @@ def movie(movie_id):
 @app.route('/search')
 def search():
     query = request.args.get('query')
-    if not query:
-        # TODO flash
-        redirect('home')
+    if not query or query == "":
+        return redirect(url_for("home"))
 
     with db.get_db_cursor() as cur:
         # XXX: hack for query wildcard characters w/ correct escaping
         query_wildcard = f"%{query}%"
         cur.execute("SELECT * FROM movie where title ilike (%s)", (query_wildcard,))
         movies = [record for record in cur]
-    return render_template("home.html", movies=movies)
+    return render_template("movie-list.html", movies=movies)
 
 
 if __name__ == '__main__':
