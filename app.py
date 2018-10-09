@@ -11,9 +11,11 @@ app = Flask(__name__)
 def initialize():
     db.setup()
 
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("404.html"), 404
+
 
 @app.route('/')
 def home():
@@ -21,6 +23,7 @@ def home():
         cur.execute("SELECT * FROM movie")
         movies = [record for record in cur]
     return render_template("home.html", movies=movies)
+
 
 @app.route('/movies/<movie_id>')
 def movie(movie_id):
@@ -33,12 +36,6 @@ def movie(movie_id):
 
     return render_template("movie.html", movie=movie)
 
-@app.route('/genres/<genre>')
-def genre(genre):
-    with db.get_db_cursor() as cur:
-        cur.execute("SELECT * FROM movie where genre=%s", (genre,))
-        movies = [record for record in cur]
-    return render_template("home.html", movies=movies)
 
 @app.route('/search')
 def search():
