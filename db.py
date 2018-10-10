@@ -14,7 +14,7 @@ from flask import current_app, g
 
 import psycopg2
 from psycopg2.pool import ThreadedConnectionPool
-from psycopg2.extras import DictCursor
+from psycopg2.extras import RealDictCursor
 
 pool = None
 
@@ -37,7 +37,7 @@ def get_db_connection():
 @contextmanager
 def get_db_cursor(commit=False):
     with get_db_connection() as connection:
-        cursor = connection.cursor(cursor_factory=DictCursor)
+        cursor = connection.cursor(cursor_factory=RealDictCursor)
         try:
             yield cursor
             if commit:

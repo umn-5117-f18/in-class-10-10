@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}autocomplete{% endblock %}
+
+{% block content %}
+
+<script defer src="/static/autocomplete.js"></script>
+
+<style type="text/css">
+
+</style>
+
+<div id="autocomplete-page">
+
+  <h1>autocomplete (using ajax)</h1>
+
+  <p>
+    Set the onkeyup method to <code>simpleSearch</code> to filter
+    results that we've hard-coded. Set it to <code>ajaxSearch</code>
+    to run the search against an API endpoint.
+  </p>
+
+  <form class="pure-form">
+    <fieldset>
+      <legend>Type a movie name:</legend>
+      <input id="autocomplete" name="query" type="text"
+             placeholder="e.g., Arr..."
+             onkeyup="ajaxSearch()">
+    </fieldset>
+  </form>
+
+  <h2>search results:</h2>
+  <ul id="search-results"></ul>
+
+</div>
+
+{% endblock %}
