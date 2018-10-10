@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}examples{% endblock %}
+
+{% block content %}
+
+<script defer src="/static/scrolling.js"></script>
+
+<style type="text/css">
+  #container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #shelf {
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+
+  img.example-poster {
+    width: 200px;
+    display: inline-block;
+  }
+
+  #btn-left {
+    position: absolute;
+    left: 0;
+    top: 45%;
+  }
+
+  #btn-right {
+    position: absolute;
+    right: 0;
+    top: 45%;
+  }
+
+  button:hover {
+    background-color: pink;
+  }
+</style>
+
+<div id="scrolling-page">
+
+  <h1>scrolling</h1>
+
+  <div id="container">
+    <div id="shelf">
+      <!-- wrap the image tags, otherwise spaces show up in between -->
+      <img src="https://image.tmdb.org/t/p/w500/2i0OOjvi7CqNQA6ZtYJtL65P9oZ.jpg" class="pure-img example-poster"
+      ><img src="https://image.tmdb.org/t/p/w500/f0QzflRlwX5dhEnzPqoVOsCt5Cy.jpg" class="pure-img example-poster"
+      ><img src="https://image.tmdb.org/t/p/w500/mNqZOtJIQfFQPjo3hmYLIn8Qqhf.jpg" class="pure-img example-poster">
+    </div>
+
+    <button id="btn-left" class="pure-button" onclick="setMargin(-200)">←</button>
+    <button id="btn-right" class="pure-button" onclick="setMargin(200)">→</button>
+  </div>
+
+</div>
+
+{% endblock %}

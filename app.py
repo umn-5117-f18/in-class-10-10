@@ -27,9 +27,9 @@ def home():
     return render_template("home.html", movies=movies)
 
 
-@app.route('/examples')
-def examples():
-    return render_template("examples.html")
+@app.route('/scrolling')
+def scrolling():
+    return render_template("scrolling.html")
 
 
 @app.route('/movies/<movie_id>')
