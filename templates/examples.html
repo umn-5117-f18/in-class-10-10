@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}examples{% endblock %}
+
+{% block content %}
+
+<script defer src="/static/examples.js"></script>
+
+<h1>examples</h1>
+
+<div id="container" style="position: relative; width: 100%; overflow: hidden;">
+  <div id="shelf" style="transition: left 0.2s ease; position: relative;">
+    <img id="totoro-img" src="https://image.tmdb.org/t/p/w500/2i0OOjvi7CqNQA6ZtYJtL65P9oZ.jpg" class="pure-img example-poster"
+    ><img id="kiki-img" src="https://image.tmdb.org/t/p/w500/f0QzflRlwX5dhEnzPqoVOsCt5Cy.jpg" class="pure-img example-poster"
+    ><img id="mononoke-img" src="https://image.tmdb.org/t/p/w500/mNqZOtJIQfFQPjo3hmYLIn8Qqhf.jpg" class="pure-img example-poster">
+  </div>
+
+  <button id="btn-left" class="pure-button"
+          onclick="setMargin(-200)"
+          style="position: absolute; left: 0; top: 45%;">←</button>
+  <button id="btn-left" class="pure-button"
+          onclick="setMargin(200)"
+          style="position: absolute; right: 0; top: 45%;">→</button>
+</div>
+
+{% endblock %}

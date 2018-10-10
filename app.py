@@ -22,9 +22,14 @@ def page_not_found(error):
 @app.route('/')
 def home():
     with db.get_db_cursor() as cur:
-        cur.execute("SELECT * FROM movie")
+        cur.execute("SELECT * FROM movie order by title")
         movies = [record for record in cur]
     return render_template("home.html", movies=movies)
+
+
+@app.route('/examples')
+def examples():
+    return render_template("examples.html")
 
 
 @app.route('/movies/<movie_id>')
