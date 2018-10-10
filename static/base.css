@@ -1,0 +1,15 @@
+#menu {
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+#search-box {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+#content {
+  
+}

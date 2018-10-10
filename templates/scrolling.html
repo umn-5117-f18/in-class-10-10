@@ -8,21 +8,39 @@
 
 <style type="text/css">
   #container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
   }
 
   #shelf {
+    position: relative;
+    transition: left 0.2s ease;
   }
 
   img.example-poster {
+    width: 200px;
+    display: inline-block;
+  }
+
+  img.example-poster {
+    width: 200px;
+    display: inline-block;
   }
 
   #btn-left {
+    position: absolute;
+    left: 0;
+    top: 45%;
   }
-
   #btn-right {
+    position: absolute;
+    right: 0;
+    top: 45%;
   }
 
   button:hover {
+    background-color: white;
   }
 </style>
 

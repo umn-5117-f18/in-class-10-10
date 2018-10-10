@@ -36,17 +36,25 @@ allMovies = [
 
 // search an in-memory data structure
 simpleSearch = () => {
+  let query = $("#autocomplete").val();
+  const result = allMovies.filter(m => m.title.toLowerCase().includes(query));
+  console.log(result);
+  const titles = result.map(r => "<li>" + r.title + "</li>");
+  $("#search-results").html(titles.join(" "));
 }
 
 // search by querying the server
 ajaxSearch = () => {
-  // $.ajax({
-  //   url: "/api/title-autocomplete",
-  //   type: "get",
-  //   data: {
-  //     query: query
-  //   },
-  //   success: function(response) {
-  //   }
-  // });
+  let query = $("#autocomplete").val();
+  $.ajax({
+    url: "/api/title-autocomplete",
+    type: "get",
+    data: {
+      query: query
+    },
+    success: function(response) {
+      const titles = response.map(r => "<li>" + r.title + "</li>");
+      $("#search-results").html(titles.join(" "));
+    }
+  });
 }

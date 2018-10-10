@@ -69,7 +69,9 @@ def search():
 
 @app.route('/api/title-autocomplete')
 def title_autocomplete():
-    return "TODO"
+    query = request.args.get('query')
+    movies = find_movies(query)
+    return jsonify(movies)
 
 
 if __name__ == '__main__':
