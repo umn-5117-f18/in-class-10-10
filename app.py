@@ -1,7 +1,6 @@
 import os
 
 from flask import Flask, abort, jsonify, redirect, render_template, request, url_for
-import psycopg2
 
 import db
 
