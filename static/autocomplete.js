@@ -34,29 +34,19 @@ allMovies = [
   }
 ]
 
-setSearchResults = (results) => {
-  const titles = results.map(r => "<li>" + r.title + "</li>");
-  $("#search-results").html(titles.join(" "));
-}
-
 // search an in-memory data structure
 simpleSearch = () => {
-  let query = $("#autocomplete").val();
-  const result = allMovies.filter(m => m.title.toLowerCase().includes(query));
-  setSearchResults(result);
 }
 
 // search by querying the server
 ajaxSearch = () => {
-  let query = $("#autocomplete").val();
-  $.ajax({
-    url: "/api/title-autocomplete",
-    type: "get",
-    data: {
-      query: query
-    },
-    success: function(response) {
-      setSearchResults(response);
-    }
-  });
+  // $.ajax({
+  //   url: "/api/title-autocomplete",
+  //   type: "get",
+  //   data: {
+  //     query: query
+  //   },
+  //   success: function(response) {
+  //   }
+  // });
 }

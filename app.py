@@ -69,11 +69,7 @@ def search():
 
 @app.route('/api/title-autocomplete')
 def title_autocomplete():
-    query = request.args.get('query')
-    movies = find_movies(query)
-    # note that I changed db.py to use RealDictCursor, which renders
-    # query results to more natural JSON
-    return jsonify(movies)
+    return "TODO"
 
 
 if __name__ == '__main__':

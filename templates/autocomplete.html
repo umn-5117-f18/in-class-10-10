@@ -6,13 +6,9 @@
 
 <script defer src="/static/autocomplete.js"></script>
 
-<style type="text/css">
-
-</style>
-
 <div id="autocomplete-page">
 
-  <h1>autocomplete (using ajax)</h1>
+  <h1>autocomplete</h1>
 
   <p>
     Set the onkeyup method to <code>simpleSearch</code> to filter
@@ -25,7 +21,7 @@
       <legend>Type a movie name:</legend>
       <input id="autocomplete" name="query" type="text"
              placeholder="e.g., Arr..."
-             onkeyup="ajaxSearch()">
+             onkeyup="simpleSearch()">
     </fieldset>
   </form>
 
